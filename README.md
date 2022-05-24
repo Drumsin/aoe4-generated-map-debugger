@@ -41,11 +41,11 @@ npm run build
 5. Open aoe4-generated-map-debugger/dist/index.html with any web browser. Have fun!
 
 
-To listen and perform a build when any changes are made to the source code, you can run a watch in the background.
+To listen and perform an automatic build with any changes made to the source code, you can run a watch in the background.
 ```
 npm run watch
 ```
 
 ### Disclaimer
-Nothing in this tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.
+Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.
 
