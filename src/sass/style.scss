@@ -1,0 +1,198 @@
+*, :after, :before {
+	box-sizing: border-box; 
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #202020;
+	color: white;
+	font-family: 'EB Garamond', serif;
+	font-size: 14px;
+    overflow: hidden;
+}
+
+.editor-toolbar {
+	align-items: center;
+	background: linear-gradient(90deg, rgba(24,28,41,1) 0%, rgba(57,71,102,1) 50%, rgba(24,28,41,1) 100%);
+	display: flex;
+	height: 50px;
+	padding: 0 20px;
+	width: 50%;
+
+	label,
+	.grid-marquee {
+		font-weight: 700;
+		font-size: 20px;
+		text-shadow: 0 2px 0 #000;
+	}
+
+	label {
+		display: block;
+		margin-right: 12px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__control {
+		align-items: center;
+		display: flex;
+		margin-right: 2%;
+	}
+
+	.btn {
+		margin-left: auto;
+	}
+
+}
+
+#editor-init {
+	bottom: 0;
+	left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 50%;
+}
+
+.debug-output {
+	background: black;
+	bottom: 40px;
+	color: white;
+	display: none;
+	font-family: 'Source Code Pro', monospace;
+	left: 0;
+	max-width: 50%;
+	padding: 8px 15px;
+	position: absolute;
+	z-index: 999;
+}
+
+#layout-result {
+
+	/**
+	* User input values.
+	*/
+	--grid-layout-gap: 2px;
+	--grid-column-count: 9; /* This gets overridden by an inline style. */
+	--grid-item--min-width: 1px;
+
+	/**
+	* Calculated values.
+	*/
+	--gap-count: calc(var(--grid-column-count) - 1);
+	--total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+	--grid-item--max-width: calc((99.99% - var(--total-gap-width)) / var(--grid-column-count));
+
+	background: black;
+	border-left: black solid 2px;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+	grid-gap: var(--grid-layout-gap);
+	left: 50%;
+	overflow-y: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50%;
+
+}
+
+.layout-result__col {
+	&::before {
+		content: '';
+		display: block;
+		padding-top: 100%;
+	}
+}
+
+.select-dropdown,
+.select-dropdown * {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.select-dropdown {
+	position: relative;
+	background-color: rgba(21, 24, 36, 0.9);
+}
+
+.select-dropdown select {
+	appearance: none;
+	background-color: transparent;
+	border: 0;
+	color: rgb(231, 192, 103);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	max-width: 100%;
+	padding: 8px 24px 8px 10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	option {
+		background-color: rgba(21, 24, 36, 0.9);
+	}
+}
+
+.select-dropdown select:active, .select-dropdown select:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.select-dropdown:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	width: 0;
+	height: 0;
+	margin-top: -2px;
+	border-top: 5px solid rgb(184, 134, 61);
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+}
+
+.input-number {
+	position: relative;
+	background-color: rgba(21, 24, 36, 0.9);
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	input {
+		appearance: none;
+		background-color: transparent;
+		border: 0;
+		color: rgb(231, 192, 103);
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		outline: none;
+		padding: 8px 10px 8px 10px;
+		width: 64px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+}
+
+/* =============================================
+
+	Buttons
+
+==============================================*/
+
+@import "btn";
+
+
+/* =============================================
+
+	terrainTypes
+
+==============================================*/
+
+@import "terrain-types";

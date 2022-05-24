@@ -1,0 +1,28 @@
+.btn {
+    background-color: #277298;
+    background-image: linear-gradient(0deg, #034d70, rgba(3, 77, 112, 0));
+    border: 1px solid transparent;
+    color: #fff0c5;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 4px 50px 5px;
+    text-shadow: 1px 1px 0 rgb(0 0 0 / 60%);
+
+    &:hover {
+        background-color: #277298;
+        background-image: linear-gradient(0deg,#034d70,rgba(3, 77, 112, 0));
+        border-image-slice: 1;
+        border-image-source: linear-gradient(180deg,#ffdf91,#b8862d);
+        border-style: solid;
+        border-width: 1px;
+        color: #fff0c5;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

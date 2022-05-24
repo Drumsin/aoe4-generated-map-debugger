@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AoE4 Generated Map Debugger</title>
+    <meta name="description" content="A simple debugger for building AoE4 generated maps. Test and see the results of your terrainLayoutResult table in a web browser.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	
+	<div class="editor-toolbar">
+		<div class="editor-toolbar__control">
+			<label for="control-map-size">Size</label>
+			<div class="select-dropdown">
+				<select class="control-map-size" id="control-map-size">
+					<option value="416">Micro (416)</option>
+					<option value="512">Small (512)</option>
+					<option value="640">Medium (640)</option>
+					<option value="768">Large (768)</option>
+					<option value="896">Gigantic (896)</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="editor-toolbar__control">
+			<label for="control-mps">Meters per square</label>
+			<div class="input-number">
+				<input class="control-mps" id="control-mps" type="number" step="1" value="40">
+			</div>
+		</div>
+
+		<div class="grid-marquee"></div>
+
+		<button type="button" class="btn execute-btn">Run</button>
+
+	</div>
+
+	<div id="editor-init"></div>
+	
+	<div id="layout-result"></div>
+
+	<div class="debug-output"></div>
+	
+</body>
+
+</html>
