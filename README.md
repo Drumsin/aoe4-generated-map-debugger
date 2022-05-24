@@ -24,7 +24,7 @@ With that being said, there are two ways to add existing code or functions to th
 ### Option 1 - Quickest
 Copy and paste existing code into the editor to run alongside your code. This is more prone to errors as functions may reference other undefined functions and variables.
 ### Option 2
-Install this debug tool on your machine locally (see below) and add your Lua functions to [map-setup-code.txt](https://github.com/Drumsin/aoe4-generated-map-debugger/blob/master/src/lua-imports/map-setup-code.txt). Lua code defined map-setup-code.txt is ran first and on each Lua parse.
+Install this debug tool on your machine locally (see below) and add your Lua functions to [map-setup-code.txt](https://github.com/Drumsin/aoe4-generated-map-debugger/blob/master/src/lua-imports/map-setup-code.txt). Lua code defined map-setup-code.txt is ran first with each Lua parse.
 
 ## Installing and running locally
 
