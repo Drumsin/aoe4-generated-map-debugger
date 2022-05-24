@@ -40,8 +40,7 @@ npm run build
 4. After running `npm run build`, a "dist" directory is automatically created.
 5. Open "aoe4-generated-map-debugger/dist/index.html" with any web browser. Have fun!
 
-
-To watch for code changes to source code and automatically rebuild.
+Any files changed in the src directory the app will need to be rebuilt, `npm run build`. To watch for code changes and automatically rebuild, you can run:
 ```
 npm run watch
 ```
