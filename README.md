@@ -37,7 +37,7 @@ Requirements: [Node.js](https://nodejs.org/en/download/)
 npm install
 npm run build
 ```
-4. After running `npm run build`, a dist directory is automatically created.
+4. After running `npm run build`, a "dist" directory is automatically created.
 5. Open aoe4-generated-map-debugger/dist/index.html with any web browser. Have fun!
 
 
