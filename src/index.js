@@ -52,7 +52,8 @@ const executeCodeBtn = document.querySelector('.execute-btn')
 var debugOutput = document.querySelector('.debug-output')
 var errorOffset = 0
 var mapSize = 416 // defeault map size
-var gridSize = setGrid(mapSize, 40) // default grid size
+var userChangedMpsVal = false
+var gridSize = setGrid(mapSize, 33) // default grid size
 const luaEnv = luainjs.createEnv() // Lua in JS init (this is our parser)
 
 
@@ -66,12 +67,22 @@ const luaEnv = luainjs.createEnv() // Lua in JS init (this is our parser)
 // toolbar option for map size
 controlMapSize.addEventListener('change', e => {
 	mapSize = e.target.value
+
+	if (userChangedMpsVal === false && mapSize <= 416) {
+		controlMps.value = 33
+	}
+
+	if (userChangedMpsVal === false && mapSize > 416) {
+		controlMps.value = 40
+	}
+
 	gridSize = setGrid(mapSize, controlMps.value)
 	executeLuaCode()
 })
 
 // toolbar option for meters per square
 controlMps.addEventListener('change', e => {
+	userChangedMpsVal = true
 	let mps = e.target.value
 	gridSize = setGrid(controlMapSize.value, mps)
 	executeLuaCode()
