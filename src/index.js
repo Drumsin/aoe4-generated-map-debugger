@@ -196,7 +196,7 @@ function getLuaCode() {
 async function executeLuaCode() {
 
 	// Init wasmoon Lua parser/interop
-	const factory = new LuaFactory()
+	const factory = new LuaFactory('https://unpkg.com/wasmoon@1.12.1/dist/glue.wasm')
 	const lua = await factory.createEngine()
 
 	try {
