@@ -191,6 +191,20 @@ for row = 1, gridSize do
     end
 end
 
---players
-playerTeams = { 1, 2 }
+--random positions
+randomPositions = false
+
+--player teams
+playerTeams = {}
+
+--2 players, 2 teams
 worldPlayerCount = 2
+playerTeams[1] = 1 --player 1 on team 1
+playerTeams[2] = 2 --player 2 on team 2
+
+--4 players, 2 teams
+--worldPlayerCount = 4
+--playerTeams[1] = 1 --player 1 on team 1
+--playerTeams[2] = 1 --player 2 on team 1
+--playerTeams[3] = 2 --player 3 on team 2
+--playerTeams[4] = 2 --player 4 on team 2
