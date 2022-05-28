@@ -1,3 +1,20 @@
+/* =========================================
+
+	User Config
+
+========================================= */
+
+const disableExecuteOnKey = true
+
+
+
+
+/* =========================================
+
+	Node Imports
+
+========================================= */
+
 import './sass/style.scss'
 
 const { LuaFactory } = require('wasmoon') // Lua parse and interop
@@ -96,7 +113,7 @@ executeCodeBtn.addEventListener('click', e => {
 
 // on editor change, run updates
 editor.session.on('change', function(delta) {
-	executeLuaCode()
+	if (disableExecuteOnKey === false) executeLuaCode()
 })
 
 
@@ -140,6 +157,7 @@ function getLuaCode() {
 	editorValue += 'gridHeight = ' + gridSize + '\r\n'
 	editorValue += 'gridWidth = ' + gridSize + '\r\n'
 	editorValue += 'worldTerrainWidth = ' + mapSize +'\r\n'
+	editorValue += 'worldTerrainHeight = ' + mapSize +'\r\n'
 
 	// lua setup code, defines all the terrain types, vars, etc
 	editorValue += mapSetupCode + '\r\n'
@@ -262,6 +280,8 @@ function setGrid(mapSize, mps) {
 
 function generateGrid(terrainLayoutResult) {
 
+	console.log(terrainLayoutResult)
+
 	// destroy the grid before generating a new one
 	destroyGrid(layoutResultContainer)
 
@@ -278,7 +298,7 @@ function generateGrid(terrainLayoutResult) {
 			
 			// playerIndex
 			if (Number.isInteger(col.playerIndex)) {
-				colEl.classList.add('player-index-' + col.playerIndex)
+				colEl.classList.add('player-start', 'player-index-' + col.playerIndex)
 			}
 
 			layoutResultContainer.append(colEl)
