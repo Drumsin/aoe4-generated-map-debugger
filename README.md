@@ -69,8 +69,7 @@ Select these files below, right-click and select "Extract". You will extract the
 
 ### STEP 3
 
-You will need to install Node.js to run a build of the tool and incorporate these new added scripts.
-[Node.js](https://nodejs.org/en/download/)
+You will need to install [Node.js](https://nodejs.org/en/download/) to run a build of the tool in order to incorporate these newly added scripts.
 
 Once Node.js is installed. Follow steps 2-5 under [Installing and Running From Local Disk](#installing-and-running-from-local-disk)
 
