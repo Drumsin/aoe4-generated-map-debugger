@@ -195,18 +195,32 @@ async function executeLuaCode() {
 
 	} catch (error) {
 
-		console.log(error.message);
+		// regex for ":[number]:" str offset
+		const errorLineNumRegex = /[(\:)]([\d]+)[(\:)]/
+		const oldErrorNum = error.message.match(errorLineNumRegex)
 
-		const newErrorNum = (error.line - errorOffset) + 1
-		//error.message = error.message.replace(/\d+:/, newErrorNum + ':')
+		if (oldErrorNum) {
+			const newErrorNum = (oldErrorNum[1] - errorOffset) + 1
+			error.message = error.message.replace(errorLineNumRegex, ' Line ' + newErrorNum + ':' )
+		}
+
+		// regex for "at line [number]" str offset
+		const errorAtLineNumRegex = /[^(\:|\W)][\d]+[^(\:|\W)]/
+		const oldErrorAtLineNum = error.message.match(errorAtLineNumRegex)
+
+		if (oldErrorAtLineNum) {
+			const newErrorAtLineNum = (oldErrorAtLineNum[0] - errorOffset) + 1
+			error.message = error.message.replace(oldErrorAtLineNum, newErrorAtLineNum )
+		}
 
 		debugOutput.style.setProperty('display', 'block')
 		debugOutput.innerHTML = error.name + ': ' + error.message
 		
 	} finally {
+
 		// Close the lua environment, so it can be freed
-		console.log('freed')
 		lua.global.close()
+	
 	}
 
 }
