@@ -280,8 +280,6 @@ function setGrid(mapSize, mps) {
 
 function generateGrid(terrainLayoutResult) {
 
-	console.log(terrainLayoutResult)
-
 	// destroy the grid before generating a new one
 	destroyGrid(layoutResultContainer)
 
