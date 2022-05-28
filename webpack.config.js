@@ -4,6 +4,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 
 module.exports = {
+	mode: 'production',
+	resolve: {
+		fallback: {
+			path: false,
+			fs: false,
+			child_process: false,
+			crypto: false,
+			url: false,
+		},
+    },
+	experiments: {
+		topLevelAwait: true,
+	},
 	entry: {
 		'build': './src/index.js'
 	},
@@ -14,7 +27,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.txt/,
+				test: /\.lua/,
 				type: 'asset/source'
 			},
 			{

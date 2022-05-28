@@ -171,6 +171,7 @@ for i = 1, #terrainTypes do
 end
 
 --useful variables
+mapMidPoint = math.ceil(gridSize / 2)
 mapHalfSize = math.ceil(gridSize / 2)
 mapQuarterSize = math.ceil(gridSize / 4)
 mapEighthSize = math.ceil(gridSize / 8)

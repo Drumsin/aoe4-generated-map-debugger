@@ -9,8 +9,7 @@
   "author": "Drumsin",
   "license": "UNLICENSED",
   "dependencies": {
-    "ace-builds": "^1.5.0",
-    "lua-in-js": "^2.2.0"
+    "ace-builds": "^1.5.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
@@ -22,6 +21,7 @@
     "postcss-loader": "^7.0.0",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
+    "wasmoon": "^1.12.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
   },

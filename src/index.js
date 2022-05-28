@@ -1,6 +1,7 @@
 import './sass/style.scss'
 
-import * as luainjs from 'lua-in-js' // The Lua to js transpile
+const { LuaFactory } = require('wasmoon') // Lua parse and interop
+
 import 'ace-builds/src-noconflict/ace' // Ace editor
 import 'ace-builds/src-noconflict/mode-lua' // Ace editor Lua mode syntax highlight
 import 'ace-builds/src-noconflict/theme-ambiance' // Ace editor theme
@@ -8,6 +9,7 @@ import 'ace-builds/src-noconflict/theme-ambiance' // Ace editor theme
 // this fixes a 404 with the lua worker looking in the wrong place
 import luaWorkerUrl from 'file-loader!ace-builds/src-noconflict/worker-lua'
 ace.config.setModuleUrl('ace/mode/lua_worker', luaWorkerUrl)
+
 
 
 
@@ -32,7 +34,7 @@ const luaMode = ace.require('ace/mode/lua').Mode
 editor.session.setMode(new luaMode())
 
 // starting example code
-import startCode from './lua-imports/start-code.txt'
+import startCode from './lua-imports/start-code.lua'
 editor.insert(startCode)
 
 
@@ -54,7 +56,7 @@ var errorOffset = 0
 var mapSize = 416 // defeault map size
 var userChangedMpsVal = false
 var gridSize = setGrid(mapSize, 33) // default grid size
-const luaEnv = luainjs.createEnv() // Lua in JS init (this is our parser)
+
 
 
 
@@ -106,7 +108,19 @@ editor.session.on('change', function(delta) {
 ========================================= */
 
 // lua setup code, common vars, and methods
-import mapSetupCode from './lua-imports/map-setup-code.txt'
+import mapSetupCode from './lua-imports/map-setup.lua'
+
+// library imports
+import libraryTemplateFunctions from './lua-imports/library/template_functions.lua'
+import libraryCalculationFunctions from './lua-imports/library/calculationfunctions.lua'
+import libraryDistributionFunctions from './lua-imports/library/distributionfunctions.lua'
+import libraryDrawLinesFunctions from './lua-imports/library/drawlinesfunctions.lua'
+import librarySetSquaresFunctions from './lua-imports/library/setsquaresfunctions.lua'
+import libraryGetSquaresFunctions from './lua-imports/library/getsquaresfunctions.lua'
+import libraryTacticalRegions from './lua-imports/library/tacticalregions.lua'
+import libraryPlayerStarts from './lua-imports/library/player_starts.lua'
+import libraryPlayerResources from './lua-imports/library/playerresources.lua'
+import libraryMapSetup from './lua-imports/library/map_setup.lua'
 
 // execute on load
 executeLuaCode()
@@ -130,6 +144,18 @@ function getLuaCode() {
 	// lua setup code, defines all the terrain types, vars, etc
 	editorValue += mapSetupCode + '\r\n'
 
+	// library lua
+	editorValue += libraryTemplateFunctions + '\r\n'
+	editorValue += libraryCalculationFunctions + '\r\n'
+	editorValue += libraryDistributionFunctions + '\r\n'
+	editorValue += libraryDrawLinesFunctions + '\r\n'
+	editorValue += librarySetSquaresFunctions + '\r\n'
+	editorValue += libraryGetSquaresFunctions + '\r\n'
+	editorValue += libraryTacticalRegions + '\r\n'
+	editorValue += libraryPlayerStarts + '\r\n'
+	editorValue += libraryPlayerResources + '\r\n'
+	editorValue += libraryMapSetup + '\r\n'
+
 	errorOffset = editorValue.split(/\r\n|\r|\n/).length
 
 	// user lua code from the Ace editor
@@ -149,34 +175,38 @@ function getLuaCode() {
 
 ========================================= */
 
-function executeLuaCode() {
+async function executeLuaCode() {
 
-	let luaCode = getLuaCode()
+	// Init wasmoon Lua parser/interop
+	const factory = new LuaFactory()
+	const lua = await factory.createEngine()
 
 	try {
-		const returnValue = luaEnv.parse(luaCode).exec()
 
-		// cleanup, removes zero index from row which is undefined, lua starts from row 1
-		returnValue.numValues.shift()
-		
-		// cleanup, removes zero index from beginning col in each row which is undefined, lua starts from col 1
-		returnValue.numValues.forEach(function(terrainRow, index) {
-			returnValue.numValues[index].numValues.shift()
-		})
+		let luaCode = getLuaCode()
+		await lua.doString(luaCode)
 
+		// reset debug error output
 		debugOutput.innerHTML = ''
 		debugOutput.style.setProperty('display', 'none')
 
 		// success, generate the grid
-		generateGrid(returnValue.numValues)
+		generateGrid(lua.global.get('terrainLayoutResult'))
 
 	} catch (error) {
 
+		console.log(error.message);
+
 		const newErrorNum = (error.line - errorOffset) + 1
-		error.message = error.message.replace(/\d+:/, newErrorNum + ':')
+		//error.message = error.message.replace(/\d+:/, newErrorNum + ':')
 
 		debugOutput.style.setProperty('display', 'block')
 		debugOutput.innerHTML = error.name + ': ' + error.message
+		
+	} finally {
+		// Close the lua environment, so it can be freed
+		console.log('freed')
+		lua.global.close()
 	}
 
 }
@@ -225,10 +255,18 @@ function generateGrid(terrainLayoutResult) {
 		
 		let rowNum = i
 
-		row.numValues.forEach(function(col, i) {
+		row.forEach(function(col, i) {
 			let colEl = document.createElement('div')
-			colEl.classList.add('layout-result__col', col.strValues.terrainType)
-			colEl.setAttribute('title', col.strValues.terrainType)
+
+			// terrainTypes
+			colEl.classList.add('layout-result__col', col.terrainType)
+			colEl.setAttribute('title', col.terrainType)
+			
+			// playerIndex
+			if (Number.isInteger(col.playerIndex)) {
+				colEl.classList.add('player-index-' + col.playerIndex)
+			}
+
 			layoutResultContainer.append(colEl)
 		})
 
