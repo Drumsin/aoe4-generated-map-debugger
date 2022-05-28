@@ -190,3 +190,7 @@ for row = 1, gridSize do
         terrainLayoutResult[row][col] = { terrainType = tt_none }
     end
 end
+
+--players
+playerTeams = { 1, 2 }
+worldPlayerCount = 2
