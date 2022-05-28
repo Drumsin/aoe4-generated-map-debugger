@@ -180,6 +180,7 @@ body {
 	}
 }
 
+
 /* =============================================
 
 	Buttons
@@ -196,3 +197,33 @@ body {
 ==============================================*/
 
 @import "terrain-types";
+
+
+/* =============================================
+
+	Player Starts
+
+==============================================*/
+
+.player-start {
+	position: relative;
+
+	&::after {
+		background: black;
+		bottom: 0;
+		color: #ffffff;
+		font-size: 24px;
+		font-weight: 700;
+		padding: 4px 12px;
+		position: absolute;
+		right: 0;
+	}
+}
+
+@for $i from 0 through 7 {
+	.player-index-#{$i} {
+		&::after {
+			content: "#{$i + 1}";
+		}
+	}
+}
