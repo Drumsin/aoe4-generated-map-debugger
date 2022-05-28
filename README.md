@@ -15,6 +15,12 @@ Having to launch the game each time to see code changes is very time consuming. 
 ## Defined Lua functions
 * `worldGetRandom()`
 
+## Code Samples
+Try out some of these code samples by pasting them into the editor. Use them in your maps!
+* [Diagonal Cross](https://gist.github.com/Drumsin/08f5dd250c2a9071217ec9d02ed5cfc5)
+* [Circle Outline](https://gist.github.com/Drumsin/c9f7f14c7fc1c72f8a9d36add7f3a733)
+* [Circle Fill](https://gist.github.com/Drumsin/4913c13dc68f76586a6886835e74cb0b)
+
 ## Running Existing Functions
 
 For legal reasons, **THIS DOES NOT** include any AoE4 source code and functions. e.g. `PlacePlayerStartsRing`, `DrawStraightLineReturn`,  `CreateTeamMappingTable`, `GetNeighbors`, etc.
