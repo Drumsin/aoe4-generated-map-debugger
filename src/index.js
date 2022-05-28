@@ -18,6 +18,8 @@ const disableExecuteOnKey = true
 import './sass/style.scss'
 
 const { LuaFactory } = require('wasmoon') // Lua parse and interop
+// Init wasmoon Lua parser/interop
+const factory = new LuaFactory('https://unpkg.com/wasmoon@1.12.1/dist/glue.wasm')
 
 import 'ace-builds/src-noconflict/ace' // Ace editor
 import 'ace-builds/src-noconflict/mode-lua' // Ace editor Lua mode syntax highlight
@@ -195,8 +197,6 @@ function getLuaCode() {
 
 async function executeLuaCode() {
 
-	// Init wasmoon Lua parser/interop
-	const factory = new LuaFactory('https://unpkg.com/wasmoon@1.12.1/dist/glue.wasm')
 	const lua = await factory.createEngine()
 
 	try {
