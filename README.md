@@ -95,7 +95,7 @@ npm run watch
 ## Testing Player Starts
 If you want to test player starts e.g. `PlacePlayerStartsRing()` and `PlacePlayerStartsDivided()`.
 
-Note: In order to test and use these functions in the debugger you will have to install this tool on your local disk, and then incorporate the necessary Lua scripts. See: [Using Map Functions](#using-map-functions)
+Note: In order to test and use these functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions)
 
 In your editor code, define `worldPlayerCount` and `playerTeams = {}` before `teamsList, playersPerTeam = SetUpTeams()`.
 
