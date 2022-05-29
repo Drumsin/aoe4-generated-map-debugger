@@ -121,6 +121,10 @@ teamsList, playersPerTeam = SetUpTeams()
 
 There is a possibility that your browser security settings is blocking the web assembly (.wasm) file that parses the Lua code. In your browser settings, try lowering the security settings from a Strict mode to a Standard/Balanced mode.
 
+#### The number of terrain columns per row is overflowing and the generation doesn't look correct
+
+Check the "Meters per square" in the editor toolbar at top of the screen is set to the same value of what your map code is using.
+
 ### Disclaimer
 Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.
 
