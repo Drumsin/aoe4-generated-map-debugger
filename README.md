@@ -89,7 +89,7 @@ npm run build
 
 Any files changed in the src directory, you will need to run: `npm run build`.
 
-To watch for code changes and automatically rebuild on saving any file, you can run:
+To watch for code changes and automatically rebuild after saving any file within the `src/` directory, you can run:
 ```
 npm run watch
 ```
