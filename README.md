@@ -123,7 +123,7 @@ There is a possibility that your browser security settings is blocking the web a
 
 #### The number of terrain columns per row is overflowing and the generation doesn't look correct
 
-Check the "Meters per square" in the editor toolbar at top of the screen is set to the same value of what your map code is using.
+Check the "Meters per square" field option in the editor toolbar is set to the same value of what your map code is using.
 
 ### Disclaimer
 Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.
