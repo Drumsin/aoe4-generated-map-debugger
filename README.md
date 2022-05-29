@@ -113,6 +113,12 @@ playerTeams[6] = 3 --player 6 on team 3
 teamsList, playersPerTeam = SetUpTeams()
 ```
 
+## Troubleshooting
+
+#### The grid in the right pane doesn't load. It's completely blank with no tiles.
+
+There is a possibility that your browser security settings is blocking the web assembly (.wasm) file that parses the Lua code. In your browser settings, try lowering the security settings from a Strict mode to a Standard/Balanced mode.
+
 ### Disclaimer
 Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.
 
