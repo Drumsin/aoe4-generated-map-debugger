@@ -285,14 +285,15 @@ function generateGrid(terrainLayoutResult) {
 
 	terrainLayoutResult.forEach(function(row, i) {
 		
-		let rowNum = i
+		let rowNum = i + 1
 
 		row.forEach(function(col, i) {
+			let colNum = i + 1
 			let colEl = document.createElement('div')
 
 			// terrainTypes
 			colEl.classList.add('layout-result__col', col.terrainType)
-			colEl.setAttribute('title', col.terrainType)
+			colEl.setAttribute('title', rowNum + ',' + colNum + ' ' + col.terrainType)
 			
 			// playerIndex
 			if (Number.isInteger(col.playerIndex)) {
