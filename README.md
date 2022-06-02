@@ -20,6 +20,7 @@ Try out some of these code samples by pasting them into the editor. Use them in 
 * [Diagonal Cross](https://gist.github.com/Drumsin/08f5dd250c2a9071217ec9d02ed5cfc5)
 * [Circle Outline](https://gist.github.com/Drumsin/c9f7f14c7fc1c72f8a9d36add7f3a733)
 * [Circle Fill](https://gist.github.com/Drumsin/4913c13dc68f76586a6886835e74cb0b)
+* [Box](https://gist.github.com/Drumsin/efe8e18c0933fdf374c88ba1964b67c4)
 
 ## Using Map Functions
 
