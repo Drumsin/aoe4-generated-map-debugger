@@ -70,7 +70,7 @@ Select these files below, right-click and select "Extract". You will extract the
 
 ### STEP 3
 
-You will need to install [Node.js](https://nodejs.org/en/download/) in order to recompile the tool with the newly added scripts.
+You will need to install [Node.js](https://nodejs.org/en/download/) in order to bundle the tool with the newly added scripts.
 
 Once Node.js is installed. Follow steps 2-5 under [Installing and Running From Local Disk](#installing-and-running-from-local-disk)
 
