@@ -20,6 +20,7 @@ Try out some of these code samples by pasting them into the editor. Use them in 
 * [Diagonal Cross](https://gist.github.com/Drumsin/08f5dd250c2a9071217ec9d02ed5cfc5)
 * [Circle Outline](https://gist.github.com/Drumsin/c9f7f14c7fc1c72f8a9d36add7f3a733)
 * [Circle Fill](https://gist.github.com/Drumsin/4913c13dc68f76586a6886835e74cb0b)
+* [Box](https://gist.github.com/Drumsin/efe8e18c0933fdf374c88ba1964b67c4)
 
 ## Using Map Functions
 
@@ -69,7 +70,7 @@ Select these files below, right-click and select "Extract". You will extract the
 
 ### STEP 3
 
-You will need to install [Node.js](https://nodejs.org/en/download/) in order to recompile the tool with the newly added scripts.
+You will need to install [Node.js](https://nodejs.org/en/download/) in order to bundle the tool with the newly added scripts.
 
 Once Node.js is installed. Follow steps 2-5 under [Installing and Running From Local Disk](#installing-and-running-from-local-disk)
 
