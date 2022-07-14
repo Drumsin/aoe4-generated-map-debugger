@@ -46,7 +46,7 @@ editor.setShowPrintMargin(false)
 editor.setTheme('ace/theme/ambiance')
 editor.setHighlightActiveLine(false)
 editor.setOption('cursorStyle', 'ace')
-document.getElementById('editor-init').style.fontSize = '20px'
+document.getElementById('editor-init').style.fontSize = '16px'
 
 // lua syntax highlight mode
 const luaMode = ace.require('ace/mode/lua').Mode

@@ -8,7 +8,7 @@ body {
 	background-color: #202020;
 	color: white;
 	font-family: 'EB Garamond', serif;
-	font-size: 14px;
+	font-size: 16px;
     overflow: hidden;
 }
 
@@ -23,7 +23,7 @@ body {
 	label,
 	.grid-marquee {
 		font-weight: 700;
-		font-size: 20px;
+		font-size: 16px;
 		text-shadow: 0 2px 0 #000;
 	}
 
@@ -57,7 +57,7 @@ body {
 }
 
 .debug-output {
-	background: black;
+	background: #800000;
 	bottom: 40px;
 	color: white;
 	display: none;
@@ -212,7 +212,7 @@ body {
 		background: black;
 		bottom: 0;
 		color: #ffffff;
-		font-size: 24px;
+		font-size: 16px;
 		font-weight: 700;
 		padding: 4px 12px;
 		position: absolute;
