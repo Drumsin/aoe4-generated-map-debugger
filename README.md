@@ -11,10 +11,10 @@ Having to launch the game each time to see code changes is very time consuming. 
 * `worldTerrainHeight`
 
 ## Global Lua Functions
-* `worldGetRandom()`
+* `worldGetRandom()` *If you are getting random numbers, you must use `worldGetRandom()`, as that ties the map script to the seed for determinism across all players. (you will sync error without it)*
 
 ## Defined Lua Variables for Efficiency
-Commonly named variables from the starter template. Already defined for you in using this debugger for speed and efficiency with testing. If you use these variables, you'll need to be sure you are defining them in your map scar code.
+Commonly named variables from the starter template. Already defined for you in using this debugger for speed and efficiency with testing. If you use these variables in testing, you'll need to define them in your map scar code. See example below:
 * `mapHalfSize`
 * `mapQuarterSize`
 * `mapEighthSize`
