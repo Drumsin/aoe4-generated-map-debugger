@@ -1,7 +1,7 @@
 # AoE4 Generated Map Debugger
 Having to launch the game each time to see code changes is very time consuming. This debug tool helps solve this problem when building [AoE4 generated maps](https://support.ageofempires.com/hc/en-us/sections/4409136290324-Generated-Maps). Test and see the results of your `terrainLayoutResult` table in any web browser.
 
-[See it in action at aoe4.app](https://aoe4.app/)
+### [Click here to see it in action at aoe4.app](https://aoe4.app/)
 
 ## Global Lua Variables
 * `gridSize`
@@ -24,6 +24,8 @@ mapHalfSize = math.ceil(gridSize/2)
 mapQuarterSize = math.ceil(gridSize/4)
 mapEighthSize = math.ceil(gridSize/8)
 ```
+
+[Check community wiki on generated maps for more information](https://wiki.aoemods.com/wiki/Generated_Maps)
 
 ## Code Samples
 Try out some of these code samples by pasting them into the editor. Use them in your maps!
