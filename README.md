@@ -19,6 +19,7 @@ Commonly named variables from the map generation starter template are already de
 * `mapQuarterSize`
 * `mapEighthSize`
 
+If using the above variables when testing, you will want to make sure they are defined the same as below in your map script.
 ```
 mapHalfSize = math.ceil(gridSize/2)
 mapQuarterSize = math.ceil(gridSize/4)
