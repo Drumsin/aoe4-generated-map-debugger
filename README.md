@@ -3,17 +3,27 @@ Having to launch the game each time to see code changes is very time consuming. 
 
 [See it in action at aoe4.app](https://aoe4.app/)
 
-## Defined Lua Variables
-* `mapHalfSize`
-* `mapQuarterSize`
-* `mapEighthSize`
+## Global Lua Variables
 * `gridSize`
 * `gridHeight`
 * `gridWidth`
 * `worldTerrainWidth`
+* `worldTerrainHeight`
 
-## Defined Lua Functions
+## Global Lua Functions
 * `worldGetRandom()`
+
+## Defined Lua Variables for Efficiency
+Commonly named variables from the starter template. Already defined for you in this debugger for speed and efficiency. If you use these variables, you have to define these variables in your map scar code.
+* `mapHalfSize`
+* `mapQuarterSize`
+* `mapEighthSize`
+
+```
+mapHalfSize = math.ceil(gridSize/2)
+mapQuarterSize = math.ceil(gridSize/4)
+mapEighthSize = math.ceil(gridSize/8)
+```
 
 ## Code Samples
 Try out some of these code samples by pasting them into the editor. Use them in your maps!
