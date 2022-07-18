@@ -112,7 +112,7 @@ If you want to test player starts e.g. `PlacePlayerStartsRing()` and `PlacePlaye
 
 In your editor code, define `worldPlayerCount` and `playerTeams = {}` before any player related functions. e.g. `SetUpTeams()`, `CreateTeamMappingTable()`, `PlacePlayerStartsRing()`, `PlacePlayerStartsDivided()`
 
-This example below is testing with 6 players, 3 teams and is defined before any player functions.
+This example below is testing with 6 players, 3 teams, and is defined before any player functions.
 
 ```
 worldPlayerCount = 6
