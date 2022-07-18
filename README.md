@@ -14,7 +14,7 @@ Having to launch the game each time to see code changes is very time consuming. 
 * `worldGetRandom()` *If you are getting random numbers, you must use `worldGetRandom()`, as that ties the map script to the seed for determinism across all players. (you will sync error without it)*
 
 ## Debugger Defined Lua Variables for Efficiency
-Commonly named variables from the map generation starter template. Defined for speed and efficiency in testing with tool. If you use these variables, you will need to define these variables in your map scar code. See example below:
+Commonly named variables from the map generation starter template. Defined for speed and efficiency in testing with tool. If you use these variables, you will need to define them in your map scar code. See example below:
 * `mapHalfSize`
 * `mapQuarterSize`
 * `mapEighthSize`
