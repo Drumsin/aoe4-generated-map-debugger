@@ -110,7 +110,7 @@ If you want to test player starts e.g. `PlacePlayerStartsRing()` and `PlacePlaye
 
 Note: In order to test and use these functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions)
 
-In your editor code, define `worldPlayerCount` and `playerTeams = {}` before `teamsList, playersPerTeam = SetUpTeams()`.
+In your editor code, define `worldPlayerCount` and `playerTeams = {}` before any player related functions. e.g. `SetUpTeams()`, `CreateTeamMappingTable()`, `PlacePlayerStartsRing()`, `PlacePlayerStartsDivided()`
 
 This example below is testing with 6 players, 3 teams.
 
@@ -122,8 +122,6 @@ playerTeams[3] = 2 --player 3 on team 2
 playerTeams[4] = 2 --player 4 on team 2
 playerTeams[5] = 3 --player 5 on team 3
 playerTeams[6] = 3 --player 6 on team 3
-
-teamsList, playersPerTeam = SetUpTeams()
 ```
 
 ## Troubleshooting
