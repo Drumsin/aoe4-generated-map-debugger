@@ -14,7 +14,7 @@ Having to launch the game each time to see code changes is very time consuming. 
 * `worldGetRandom()`
 
 ## Defined Lua Variables for Efficiency
-Commonly named variables from the starter template. Already defined for you in using this debugger for speed and efficiency for testing. If you use these variables, you'll need to be sure you are defining them in your map scar code.
+Commonly named variables from the starter template. Already defined for you in using this debugger for speed and efficiency with testing. If you use these variables, you'll need to be sure you are defining them in your map scar code.
 * `mapHalfSize`
 * `mapQuarterSize`
 * `mapEighthSize`
