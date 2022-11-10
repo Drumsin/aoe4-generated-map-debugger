@@ -21,7 +21,8 @@
 for i = 1, gridSize * gridSize do
 	randomRow = math.ceil(worldGetRandom() * gridSize)
 	randomCol = math.ceil(worldGetRandom() * gridSize)
-	terrainLayoutResult[randomRow][randomCol].terrainType = terrainTypes[math.random(1, #terrainTypes)]
+	randomTerrainIndex = math.ceil(worldGetRandom() * #terrainTypes)
+	terrainLayoutResult[randomRow][randomCol].terrainType = terrainTypes[randomTerrainIndex]
 end
 
 --Nothing on this site is made, distributed, or supported by Relic Entertainment, World's Edge Studio, and Microsoft.
