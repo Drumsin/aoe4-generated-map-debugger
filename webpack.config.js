@@ -39,6 +39,10 @@ module.exports = {
 					"sass-loader",
 				],
 			},
+			{
+                test: /\.wasm/,
+                type: 'asset/resource',
+            },
 		]
 	},
 	plugins: [
