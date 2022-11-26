@@ -53,13 +53,14 @@ Navigate to:
 
 Select these files below, right-click and select "Extract". You will extract these files and overwrite the existing files located in:
 
-`aoe4-generated-map-debugger/src/lua-imports/library`
+`aoe4-generated-map-debugger/src/lua-imports/library/engine/`
 
 * `calculationfunctions.lua`
 * `distributionfunctions.lua`
 * `drawlinesfunctions.lua`
 * `getsquaresfuntions.lua`
 * `setsquaresfunctiona.lua`
+* `template_functions.lua`
 
 ### STEP 2
 
@@ -73,13 +74,15 @@ Navigate to:
 
 Select these files below, right-click and select "Extract". You will extract these files and overwrite the existing files located in:
 
-`aoe4-generated-map-debugger/src/lua-imports/library`
+`aoe4-generated-map-debugger/src/lua-imports/library/cardinal/`
 
 * `map_setup.lua`
-* `player_starts.lua`
 * `playerresources.lua`
+* `player_starts.lua`
+* `review_functions.lua`
 * `tacticalregions.lua`
 * `template_functions.lua`
+* `xp1_functions.lua`
 
 ### STEP 3
 
@@ -129,6 +132,10 @@ There is a possibility that your browser security settings is blocking the web a
 #### The number of terrain columns per row is overflowing and the generation doesn't look correct.
 
 Check the "Meters per square" field option in the editor toolbar is set to the same value of what your map code is using.
+
+#### When I copy a large portion of my code from the editor to paste elsewhere, my browser freezes and I have to close the window.
+
+This is a known issue with the editor pane tool and the Chromium browser. Try using a different browser like Firefox or Safari.
 
 ### Disclaimer
 Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.

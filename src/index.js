@@ -19,7 +19,8 @@ import './sass/style.scss'
 
 const { LuaFactory } = require('wasmoon') // Lua parse and interop
 // Init wasmoon Lua parser/interop
-const factory = new LuaFactory('https://unpkg.com/wasmoon@1.14.0/dist/glue.wasm')
+const factory = new LuaFactory('https://unpkg.com/wasmoon@1.14.1/dist/glue.wasm')
+const luamin = require('luamin') // Lua minifier
 
 import 'ace-builds/src-noconflict/ace' // Ace editor
 import 'ace-builds/src-noconflict/mode-lua' // Ace editor Lua mode syntax highlight
@@ -129,17 +130,22 @@ editor.session.on('change', function(delta) {
 // lua setup code, common vars, and methods
 import mapSetupCode from './lua-imports/map-setup.lua'
 
-// library imports
-import libraryTemplateFunctions from './lua-imports/library/template_functions.lua'
-import libraryCalculationFunctions from './lua-imports/library/calculationfunctions.lua'
-import libraryDistributionFunctions from './lua-imports/library/distributionfunctions.lua'
-import libraryDrawLinesFunctions from './lua-imports/library/drawlinesfunctions.lua'
-import librarySetSquaresFunctions from './lua-imports/library/setsquaresfunctions.lua'
-import libraryGetSquaresFunctions from './lua-imports/library/getsquaresfunctions.lua'
-import libraryTacticalRegions from './lua-imports/library/tacticalregions.lua'
-import libraryPlayerStarts from './lua-imports/library/player_starts.lua'
-import libraryPlayerResources from './lua-imports/library/playerresources.lua'
-import libraryMapSetup from './lua-imports/library/map_setup.lua'
+// library engine imports
+import libraryTemplateEngineFunctions from './lua-imports/library/engine/template_functions.lua'
+import libraryCalculationFunctions from './lua-imports/library/engine/calculationfunctions.lua'
+import libraryDistributionFunctions from './lua-imports/library/engine/distributionfunctions.lua'
+import libraryDrawLinesFunctions from './lua-imports/library/engine/drawlinesfunctions.lua'
+import librarySetSquaresFunctions from './lua-imports/library/engine/setsquaresfunctions.lua'
+import libraryGetSquaresFunctions from './lua-imports/library/engine/getsquaresfunctions.lua'
+
+// library cardinal imports
+import libraryTemplateCardinalFunctions from './lua-imports/library/cardinal/template_functions.lua'
+import libraryTacticalRegions from './lua-imports/library/cardinal/tacticalregions.lua'
+import libraryPlayerStarts from './lua-imports/library/cardinal/player_starts.lua'
+import libraryPlayerResources from './lua-imports/library/cardinal/playerresources.lua'
+import libraryMapSetup from './lua-imports/library/cardinal/map_setup.lua'
+import libraryReviewFunctions from './lua-imports/library/cardinal/review_functions.lua'
+import libraryXp1Functions from './lua-imports/library/cardinal/xp1_functions.lua'
 
 // execute on load
 executeLuaCode()
@@ -165,16 +171,21 @@ function getLuaCode() {
 	editorValue += mapSetupCode + '\r\n'
 
 	// library lua
-	editorValue += libraryTemplateFunctions + '\r\n'
+	editorValue += libraryTemplateEngineFunctions + '\r\n'
 	editorValue += libraryCalculationFunctions + '\r\n'
 	editorValue += libraryDistributionFunctions + '\r\n'
 	editorValue += libraryDrawLinesFunctions + '\r\n'
 	editorValue += librarySetSquaresFunctions + '\r\n'
 	editorValue += libraryGetSquaresFunctions + '\r\n'
+
 	editorValue += libraryTacticalRegions + '\r\n'
 	editorValue += libraryPlayerStarts + '\r\n'
 	editorValue += libraryPlayerResources + '\r\n'
 	editorValue += libraryMapSetup + '\r\n'
+
+	editorValue += libraryTemplateCardinalFunctions + '\r\n'
+	editorValue += libraryReviewFunctions + '\r\n'
+	editorValue += libraryXp1Functions + '\r\n'
 
 	errorOffset = editorValue.split(/\r\n|\r|\n/).length
 
@@ -183,6 +194,9 @@ function getLuaCode() {
 
 	// return the terrainLayoutResult from Lua
 	editorValue += '\r\n' + 'return terrainLayoutResult'
+
+	// minify lua code
+	editorValue = luamin.minify(editorValue)
 
 	return editorValue
 }
@@ -202,7 +216,7 @@ async function executeLuaCode() {
 	try {
 
 		let luaCode = getLuaCode()
-		await lua.doString(luaCode)
+		lua.doStringSync(luaCode)
 
 		// reset debug error output
 		debugOutput.innerHTML = ''
