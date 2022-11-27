@@ -377,6 +377,14 @@ for row = 1, gridSize do
     end
 end
 
+--river
+riverResult = {}
+
+--crossings over rivers
+fordResults = {}
+woodBridgeResults = {}
+stoneBridgeResults = {}
+
 --random positions
 randomPositions = false
 

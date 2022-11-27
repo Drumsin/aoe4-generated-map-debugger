@@ -227,3 +227,38 @@ body {
 		}
 	}
 }
+
+/* =============================================
+
+	River Crossings
+
+==============================================*/
+
+.river-crossing {
+	position: relative;
+
+	&::after {
+		box-shadow: 0 3px 2px 0 rgba(0, 0, 0, .33);
+		content: "";
+		display: block;
+		height: 4px;
+		position: absolute;
+		right: 11%;
+		transform: rotate(-45deg);
+		transform-origin: right;
+		top: 7.25%;
+		width: 110%;
+	}
+
+	&.ford::after {
+		background: #eab676;
+	}
+
+	&.wood::after {
+		background: #873e23;
+	}
+
+	&.stone::after {
+		background: #5c5c5c;
+	}
+}

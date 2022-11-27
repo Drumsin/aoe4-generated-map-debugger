@@ -35,7 +35,7 @@ Try out some of these code samples by pasting them into the editor. Use them in 
 
 [See community wiki on generated maps](https://wiki.aoemods.com/wiki/Generated_Maps)
 
-## Using Map Functions
+## Using Map Functions (Debug Entire Maps)
 
 For legal reasons, **THIS TOOL DOES NOT** include any AoE4 source code and functions. e.g. `PlacePlayerStartsRing`, `DrawStraightLineReturn`,  `CreateTeamMappingTable`, `GetNeighbors`, etc.
 
@@ -125,17 +125,17 @@ playerTeams[6] = 3 --player 6 on team 3
 
 ## Troubleshooting
 
-#### The grid in the right pane doesn't load. It's completely blank with no tiles.
-
-There is a possibility that your browser security settings is blocking the web assembly (.wasm) file that parses the Lua code. In your browser settings, try lowering the security settings from a Strict mode to a Standard/Balanced mode.
-
 #### The number of terrain columns per row is overflowing and the generation doesn't look correct.
 
 Check the "Meters per square" field option in the editor toolbar is set to the same value of what your map code is using.
 
-#### When I copy a large portion of my code from the editor to paste elsewhere, my browser freezes and I have to close the window.
+#### When I copy a large portion of my code from the editor pane to paste elsewhere, my browser freezes and I have to close the window.
 
-This is a known issue with the editor pane tool and the Chromium browser. Try using a different browser like Firefox or Safari.
+This is a known issue with the editor pane tool and the Chromium browser. Try using Firefox or Safari if this is an issue.
+
+#### The grid in the right pane doesn't load. It's completely blank with no tiles.
+
+There is a possibility that your browser security settings is blocking the web assembly (.wasm) file that parses the Lua code. In your browser settings, try lowering the security settings from a Strict mode to a Standard/Balanced mode.
 
 ### Disclaimer
 Nothing in this debug tool is made, distributed, or supported by Relic Entertainment Inc, World's Edge LLC, and Microsoft Corporation.

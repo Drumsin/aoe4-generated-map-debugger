@@ -192,8 +192,8 @@ function getLuaCode() {
 	// user lua code from the Ace editor
 	editorValue += editor.getValue()
 
-	// return the terrainLayoutResult from Lua
-	editorValue += '\r\n' + 'return terrainLayoutResult'
+	// return the terrainLayoutResult, rivers, and crossings from Lua
+	editorValue += '\r\n' + 'return terrainLayoutResult, riverResult, fordResults, woodBridgeResults, stoneBridgeResults'
 
 	// minify lua code
 	editorValue = luamin.minify(editorValue)
@@ -223,7 +223,13 @@ async function executeLuaCode() {
 		debugOutput.style.setProperty('display', 'none')
 
 		// success, generate the grid
-		generateGrid(lua.global.get('terrainLayoutResult'))
+		generateGrid(
+			lua.global.get('terrainLayoutResult'),
+			lua.global.get('riverResult'),
+			lua.global.get('fordResults'),
+			lua.global.get('woodBridgeResults'),
+			lua.global.get('stoneBridgeResults')
+		)
 
 	} catch (error) {
 
@@ -292,11 +298,42 @@ function setGrid(mapSize, mps) {
 
 ========================================= */
 
-function generateGrid(terrainLayoutResult) {
+function generateGrid(terrainLayoutResult, riverResult, fordResults, woodBridgeResults, stoneBridgeResults) {
 
 	// destroy the grid before generating a new one
 	destroyGrid(layoutResultContainer)
 
+	// river crossing prep, merge into terrainLayoutResult
+	let riverCrossings = [ 'ford', 'wood', 'stone' ]
+	let riverCrossingObject = {}
+	riverCrossings.forEach(function(riverCrossingType, i) {
+		
+		switch(riverCrossingType) {
+
+			case 'ford':
+			riverCrossingObject = fordResults
+			break;
+
+			case 'wood':
+			riverCrossingObject = woodBridgeResults
+			break;
+
+			case 'stone':
+			riverCrossingObject = stoneBridgeResults
+			break;
+
+		}
+
+		if (riverCrossingObject.length) {
+			riverCrossingObject[0].forEach(function(row, i) {
+				let terrainRow = row[0] - 1
+				let terrainCol = row[1] - 1
+				terrainLayoutResult[terrainRow][terrainCol]['crossing'] = riverCrossingType
+			})
+		}
+	})
+
+	// terrain and player
 	terrainLayoutResult.forEach(function(row, i) {
 		
 		let rowNum = i + 1
@@ -308,6 +345,11 @@ function generateGrid(terrainLayoutResult) {
 			// terrainTypes
 			colEl.classList.add('layout-result__col', col.terrainType)
 			colEl.setAttribute('title', rowNum + ',' + colNum + ' ' + col.terrainType)
+
+			// river crossing
+			if (col.crossing !== undefined) {
+				colEl.classList.add('river-crossing', col.crossing)
+			}
 			
 			// playerIndex
 			if (Number.isInteger(col.playerIndex)) {
@@ -318,6 +360,7 @@ function generateGrid(terrainLayoutResult) {
 		})
 
 	})
+	
 }
 
 
