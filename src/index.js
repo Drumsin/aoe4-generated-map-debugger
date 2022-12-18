@@ -17,9 +17,11 @@ const disableExecuteOnKey = true
 
 import './sass/style.scss'
 
-const { LuaFactory } = require('wasmoon') // Lua parse and interop
+import { LuaFactory } from 'wasmoon' // Lua parse and interop
+import luaWasmFile from 'wasmoon/dist/glue.wasm'
+
 // Init wasmoon Lua parser/interop
-const factory = new LuaFactory('https://unpkg.com/wasmoon@1.14.1/dist/glue.wasm')
+const factory = new LuaFactory(luaWasmFile)
 const luamin = require('luamin') // Lua minifier
 
 import 'ace-builds/src-noconflict/ace' // Ace editor
