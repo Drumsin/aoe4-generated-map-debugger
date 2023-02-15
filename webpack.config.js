@@ -57,5 +57,12 @@ module.exports = {
 			]
 		}),
 		new MiniCssExtractPlugin()
-	]
+	],
+	devServer: {
+		static: {
+		  	directory: path.join(__dirname, 'dist'),
+		},
+		compress: true,
+		port: 9000,
+	},
 }

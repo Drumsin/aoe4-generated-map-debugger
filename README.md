@@ -106,6 +106,23 @@ npm run build
 
 Any files changed in the src directory, you will need to run: `npm run build`.
 
+### STEP 3 Alternative
+
+This is entirely optional and is an alternative way to install and run the application. If you'd prefer to use docker instead of installing Node.js then follow these steps:
+
+Requirements: [Docker](https://docs.docker.com/get-docker/)
+
+1. Clone or download this repository.
+2. Navigate to the "aoe4-generated-map-debugger" directory from your command line.
+3. In your command line run these two commands.
+```
+docker build --pull --rm -f "Dockerfile" -t aoe4generatedmapdebugger:latest "."
+docker run -p 9000:9000 aoe4generatedmapdebugger:latest
+```
+4. Open `http://localhost:9000/` with any web browser. Have fun!
+
+Any files changed in the src directory will require you to re-run the commands above.
+
 ## Testing Player Starts
 **IMPORTANT: In order to test player start functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions-debug-entire-maps)**
 
