@@ -51,7 +51,7 @@ npm run build
 
 Any files changed in the src directory, you will need to run: `npm run build`.
 
-## Using Map Functions (Debug Entire Maps)
+## Using Map Functions (Debug Existing Maps)
 
 For legal reasons, **THIS TOOL DOES NOT** include any AoE4 source code and functions. e.g. `PlacePlayerStartsRing`, `DrawStraightLineReturn`,  `CreateTeamMappingTable`, `GetNeighbors`, etc.
 
