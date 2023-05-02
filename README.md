@@ -35,6 +35,22 @@ Try out some of these code samples by pasting them into the editor. Use them in 
 
 [See community wiki on generated maps](https://wiki.aoemods.com/wiki/Generated_Maps)
 
+## Installing and Running From Local Disk
+
+Requirements: [Node.js](https://nodejs.org/en/download/)
+
+1. Clone or download this repository.
+2. Navigate to the "aoe4-generated-map-debugger" directory from your command line.
+3. In your command line run these two commands.
+```
+npm install
+npm run build
+```
+4. After running `npm run build`, a "dist" directory is automatically created.
+5. Open `aoe4-generated-map-debugger/dist/index.html` with any web browser. Have fun!
+
+Any files changed in the src directory, you will need to run: `npm run build`.
+
 ## Using Map Functions (Debug Entire Maps)
 
 For legal reasons, **THIS TOOL DOES NOT** include any AoE4 source code and functions. e.g. `PlacePlayerStartsRing`, `DrawStraightLineReturn`,  `CreateTeamMappingTable`, `GetNeighbors`, etc.
@@ -89,22 +105,6 @@ Select these files below, right-click and select "Extract". You will extract the
 You will need to install [Node.js](https://nodejs.org/en/download/) in order to bundle the tool with the newly added scripts.
 
 Once Node.js is installed. Follow steps 2-5 under [Installing and Running From Local Disk](#installing-and-running-from-local-disk)
-
-## Installing and Running From Local Disk
-
-Requirements: [Node.js](https://nodejs.org/en/download/)
-
-1. Clone or download this repository.
-2. Navigate to the "aoe4-generated-map-debugger" directory from your command line.
-3. In your command line run these two commands.
-```
-npm install
-npm run build
-```
-4. After running `npm run build`, a "dist" directory is automatically created.
-5. Open `aoe4-generated-map-debugger/dist/index.html` with any web browser. Have fun!
-
-Any files changed in the src directory, you will need to run: `npm run build`.
 
 ## Testing Player Starts
 **IMPORTANT: In order to test player start functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions-debug-entire-maps)**
