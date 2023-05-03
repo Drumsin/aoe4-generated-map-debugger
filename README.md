@@ -53,6 +53,8 @@ Any files changed in the src directory, you will need to run: `npm run build`.
 
 ## Using Map Functions (Debug Existing Maps)
 
+**Before continuing, you need to have a local working version on your local disk. See: [Installing and Running From Local Disk](#installing-and-running-from-local-disk)**
+
 For legal reasons, **THIS TOOL DOES NOT** include any AoE4 source code and functions. e.g. `PlacePlayerStartsRing`, `DrawStraightLineReturn`,  `CreateTeamMappingTable`, `GetNeighbors`, etc.
 
 **However, you can run this tool on your local disk and incorporate these map functions. Once you download or clone this repository, follow the steps below.**
