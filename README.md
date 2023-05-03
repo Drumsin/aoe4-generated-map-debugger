@@ -107,7 +107,7 @@ You will need to install [Node.js](https://nodejs.org/en/download/) in order to 
 Once Node.js is installed. Follow steps 2-5 under [Installing and Running From Local Disk](#installing-and-running-from-local-disk)
 
 ## Testing Player Starts
-**IMPORTANT: In order to test player start functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions-debug-entire-maps)**
+**IMPORTANT: In order to test player start functions in the debugger you will have to install this tool on your local disk, followed by incorporating Lua scripts. See: [Using Map Functions](#using-map-functions-debug-existing-maps)**
 
 In your editor code, define `worldPlayerCount` and `playerTeams = {}` before any player related functions. e.g. `SetUpTeams()`, `CreateTeamMappingTable()`, `PlacePlayerStartsRing()`, `PlacePlayerStartsDivided()`
 
