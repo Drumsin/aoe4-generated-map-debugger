@@ -27,7 +27,7 @@ for file in $(find $folder -name "*.xml"); do
 
     # Check if value is zero
     if [[ $value -eq 0 ]]; then
-        # Assign the hex value 444444
+        # No color value assigned for hex value, so we give it a lighter color from default
         hex=666666
     else
         # Get the remainder of dividing value by 16777216
