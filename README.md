@@ -33,7 +33,9 @@ Try out some of these code samples by pasting them into the editor. Use them in 
 * [Circle Fill](https://gist.github.com/Drumsin/4913c13dc68f76586a6886835e74cb0b)
 * [Box](https://gist.github.com/Drumsin/efe8e18c0933fdf374c88ba1964b67c4)
 
-[See community wiki on generated maps](https://wiki.aoemods.com/wiki/Generated_Maps)
+[Native library function documentation](https://github.com/aoemods/wiki/wiki/Generated-maps---Library-functions)
+
+[Functions built by the community](https://github.com/aoemods/wiki/wiki/Generated-maps----Community-functions)
 
 ## Installing and Running From Local Disk
 
@@ -102,6 +104,8 @@ Select these files below, right-click and select "Extract". You will extract the
 * `tacticalregions.lua`
 * `template_functions.lua`
 * `xp1_functions.lua`
+* `xp2_functions.lua`
+* `xp3_functions.lua`
 
 ### STEP 3
 
