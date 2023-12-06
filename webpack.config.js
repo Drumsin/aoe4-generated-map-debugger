@@ -12,6 +12,7 @@ module.exports = {
 			child_process: false,
 			crypto: false,
 			url: false,
+			module: false
 		},
     },
 	experiments: {

@@ -1,6 +1,8 @@
 --Join the Unofficial AoE4 Modding Discord: https://discord.gg/h8FX9Uq3vG
 --Getting started with generated maps: https://support.ageofempires.com/hc/en-us/sections/4409136290324-Generated-Maps
---GitHub: https://github.com/Drumsin/aoe4-generated-map-debugger
+
+--To debug entire maps and use map functions, see GitHub link below:
+--https://github.com/Drumsin/aoe4-generated-map-debugger
 
 --Helpful variables
 --mapHalfSize

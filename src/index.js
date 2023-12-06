@@ -148,6 +148,8 @@ import libraryPlayerResources from './lua-imports/library/cardinal/playerresourc
 import libraryMapSetup from './lua-imports/library/cardinal/map_setup.lua'
 import libraryReviewFunctions from './lua-imports/library/cardinal/review_functions.lua'
 import libraryXp1Functions from './lua-imports/library/cardinal/xp1_functions.lua'
+import libraryXp2Functions from './lua-imports/library/cardinal/xp2_functions.lua'
+import libraryXp3Functions from './lua-imports/library/cardinal/xp3_functions.lua'
 
 // execute on load
 executeLuaCode()
@@ -188,6 +190,8 @@ function getLuaCode() {
 	editorValue += libraryTemplateCardinalFunctions + '\r\n'
 	editorValue += libraryReviewFunctions + '\r\n'
 	editorValue += libraryXp1Functions + '\r\n'
+	editorValue += libraryXp2Functions + '\r\n'
+	editorValue += libraryXp3Functions + '\r\n'
 
 	errorOffset = editorValue.split(/\r\n|\r|\n/).length
 
