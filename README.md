@@ -132,7 +132,9 @@ playerTeams[6] = 3 --player 6 on team 3
 
 ## Using Custom Terrain Types
 
-Copy your custom terrain type .xml files from your mods project directory and paste them in src/lua-imports/terrain directory to render them in the debugger.
+Make a copy of your custom terrain type .xml files from your mods project directory and paste them in:
+
+`aoe4-generated-map-debugger/src/custom_terrain_types/`
 
 Run `npm run build` to compile the new terrain types into the tool.
 
