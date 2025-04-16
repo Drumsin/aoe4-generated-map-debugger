@@ -666,6 +666,98 @@ for i = 1, #terrainTypes do
     _G[terrainTypes[i]] = terrainTypes[i]
 end
 
+--basic Round
+function Round(num, numDecimalPlaces)
+	local mult = 10^(numDecimalPlaces or 0)
+	return math.floor(num * mult + 0.5) / mult
+end
+
+--default grid
+function SetCoarseGrid()
+	local metersPerSquare = 40
+
+	local mapHeight
+	local mapWidth
+	local mapSize
+	
+	local minimumRes = 13
+	
+	mapHeight = Round(worldTerrainHeight / metersPerSquare, 0)
+	mapWidth = Round(worldTerrainWidth / metersPerSquare, 0)
+	
+	if (mapHeight % 2 == 0) then
+		mapHeight = mapHeight - 1
+	end
+
+	if (mapWidth % 2 == 0) then
+		mapWidth = mapWidth - 1
+	end
+	
+	mapSize = mapWidth
+	
+	if(mapHeight < minimumRes) then
+		mapHeight = minimumRes
+	end
+	
+	if(mapWidth < minimumRes) then
+		mapWidth = minimumRes
+	end
+	
+	if(mapSize < minimumRes) then
+		mapSize = minimumRes
+	end
+	
+	return mapHeight, mapWidth, mapSize
+end
+
+--map grid custom dimension
+function SetCustomCoarseGrid(metersPerSquare)
+	local mapHeight
+	local mapWidth
+	local mapSize
+
+	mapHeight = Round(worldTerrainHeight / metersPerSquare, 0)
+	mapWidth = Round(worldTerrainWidth / metersPerSquare, 0)
+	
+	if (mapHeight % 2 == 0) then
+		mapHeight = mapHeight - 1
+	end
+
+	if (mapWidth % 2 == 0) then
+		mapWidth = mapWidth - 1
+	end
+	
+	mapSize = mapWidth
+	return mapHeight, mapWidth, mapSize
+end
+
+-- sets all squares in coarse map to tt_none based on the coarse grid resolution and fills it with the designated terrain type
+function SetUpGrid(gridSize, pickedTerrain, mapGrid)
+	if (gridSize < 1) then
+		print("ERROR: Grid size less than 1. Setting grid size to 2.")
+		gridSize = 2
+	end
+	
+	if (pickedTerrain == nil) then
+		print("ERROR: No terrain type specified. Setting terrain type to none.")
+		terrainForSquare = -1
+	end
+	
+	if (coarseMapGrid == nil) then
+		print("ERROR: coarseMapGrid is nil. Setting coarseMapGrid to {}")
+		coarseMapGrid = {}
+	end
+	
+	for row = 1,gridSize do
+		coarseMapGrid[row] = {}
+		for column = 1, gridSize do
+			coarseMapGrid[row][column] = {}
+			coarseMapGrid[row][column].terrainType = pickedTerrain
+		end
+	end
+	return coarseMapGrid
+end
+
 --useful variables
 mapMidPoint = math.ceil(gridSize / 2)
 mapHalfSize = math.ceil(gridSize / 2)

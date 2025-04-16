@@ -349,8 +349,17 @@ function generateGrid(terrainLayoutResult, riverResult, fordResults, woodBridgeR
 			let colEl = document.createElement('div')
 
 			// terrainTypes
-			colEl.classList.add('layout-result__col', col.terrainType)
-			colEl.setAttribute('title', rowNum + ',' + colNum + ' ' + col.terrainType)
+			let terrainType = col.terrainType;
+
+			// Check if terrainType contains a hash and colon, and strip it out
+			// This is a workaround for the Lua code that adds a hash and colon to the terrain type
+			// See https://github.com/aoemods/wiki/wiki/Generated-maps-Custom-Terrain-Types
+			if (typeof terrainType === 'string' && terrainType.includes(':')) {
+				terrainType = terrainType.split(':')[1]; // Keep only the part after the colon
+			}
+
+			colEl.classList.add('layout-result__col', terrainType)
+			colEl.setAttribute('title', rowNum + ',' + colNum + ' ' + terrainType)
 
 			// river crossing
 			if (col.crossing !== undefined) {
