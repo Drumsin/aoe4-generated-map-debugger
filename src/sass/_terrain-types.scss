@@ -642,9 +642,16 @@ $terrain_types: (
 "tt_plains_marsh":"D3FF44",
 "tt_campaign_starting_pos":"AA5E12",
 "tt_plains_test":"666666",
-"tt_none": "333333"
+"tt_none":"333333"
 );
 
+// Custom terrain types
+$custom_terrain_types: (
+
+);
+
+// Combine both maps
+$terrain_types: map-merge($terrain_types, $custom_terrain_types);
 
 @each $name, $hex in $terrain-types {
 	.#{$name} {

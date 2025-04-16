@@ -130,6 +130,14 @@ playerTeams[5] = 3 --player 5 on team 3
 playerTeams[6] = 3 --player 6 on team 3
 ```
 
+## Using Custom Terrain Types
+
+Copy your custom terrain type .xml files from your mods project directory and paste them in src/lua-imports/terrain directory to render them in the debugger.
+
+Run `npm run build` to compile the new terrain types into the tool.
+
+[See this guide on creating custom terrain types](https://github.com/aoemods/wiki/wiki/Generated-maps-Custom-Terrain-Types).
+
 ## Troubleshooting
 
 #### The number of terrain columns per row is overflowing and the generation doesn't look correct.
