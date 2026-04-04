@@ -1,7 +1,7 @@
 # AoE4 Generated Map Debugger
 Having to launch the game each time to see code changes is very time consuming. This debug tool helps solve this problem when building [AoE4 generated maps](https://support.ageofempires.com/hc/en-us/sections/4409136290324-Generated-Maps). Test and see the results of your `terrainLayoutResult` table in any web browser.
-
 ### [Click here to see it in action at aoe4.app](https://aoe4.app/)
+![aoe4-terrain-layout](https://github.com/user-attachments/assets/f45f1106-0f4f-4275-bf64-c72ed74809a9)
 
 ## Global Lua Variables
 * `gridSize`
@@ -79,8 +79,8 @@ Select these files below, right-click and select "Extract". You will extract the
 * `calculationfunctions.lua`
 * `distributionfunctions.lua`
 * `drawlinesfunctions.lua`
-* `getsquaresfuntions.lua`
-* `setsquaresfunctiona.lua`
+* `getsquaresfunctions.lua`
+* `setsquaresfunctions.lua`
 * `template_functions.lua`
 
 ### STEP 2
