@@ -1,6 +1,6 @@
 {
   "name": "aoe4-generated-map-debugger",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "A simple debugger for building AoE4 generated maps. Test and see the results of your terrainLayoutResult table in a web browser.",
   "scripts": {
     "build": "webpack",
@@ -11,10 +11,10 @@
   "dependencies": {
     "ace-builds": "^1.40.0",
     "wasmoon": "^1.16.0",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^6.11.0",
     "eslint": "^9.24.0",
     "file-loader": "^6.2.0",
